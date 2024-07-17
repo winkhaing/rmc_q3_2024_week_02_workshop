@@ -35,13 +35,13 @@ As you may remember from the lesson, merge conflicts can happen when multiple co
 
 3.  **Partner 3** - Section 3: Overall burden
 
-When everyone is done, each section will be automatically compiled into one report using a special feature of R Markdown called **child documents** (explained below).
+Each group member should take responsibility for completing one of these child documents. When everyone is done, each section will be automatically compiled into one report using a special feature of R Markdown called **child documents** (explained below).
 
 # Parent and Child documents
 
-I find that a single R Markdown file quickly becomes unwieldy. I recommend breaking the document up into multiple “child” documents and sourcing these child documents in a parent document. My child documents generally represent major subsections of the document.
+A single long R Markdown file quickly becomes unwieldy and makes collaboration difficult. We address this by breaking the document up into multiple “child” documents and sourcing these child documents in a "parent" document. Child documents generally represent major subsections of the document.
 
-Root project directory
+Example project directory:
 
 -   **data** – *store data as CSVs*
 
@@ -55,39 +55,49 @@ Root project directory
 
     -   analysis-part3.Rmd [child]
 
-Our files for today look like this:
+Our rmd folder for today look like this, with one parent Rmd and 3 child Rmds:
 
 ![](images/clipboard-1984863374.png)
 
-Since we’ve organised the report sections in the individual child Rmd files, all we need to do is to “source” these Rmd files into the “parent” file.
+Since we’ve organised the three report sections into individual child Rmd files, all we need to do is to “source” these Rmd files into the “parent” file.
 
-We can call the child documents into the main parent document via the **`knitr`** chunk option **`child`**. The `child` option takes a character vector of paths to the child documents, e.g., `{r child=c('one.Rmd', 'two.Rmd')}`.
+We can call the child documents into the main parent document via the **`knitr`** chunk option **`child`**. The `child` option takes a character vector of paths to the child documents, e.g., `{r child=c('one.Rmd', 'two.Rmd')}`.
 
-In our case, the chunk option looks like this:
+In our case, we need only one empty code chunk in the parent Rmd, with a `child` chunk option that looks like this:
 
 ![](images/clipboard-704714772.png)
 
-This has already been filled in for you in "daly_report_PARENT.Rmd"
+This has already been filled in for you in "daly_report_PARENT.Rmd", so you need not make any changes to that document other than adding author names and country names.
 
 # TASK 1: FORK AND CLONE THE REPO
 
+We will provide a repository for this workshop, hosted on the GRAPH Courses GitHub. Partner 1 will then create a forked copy of the original, and all group members will use that to complete the exercise. Detailed steps are outlined below.
+
+![](images/git_diagram_fork_clone.png){width="543"}
+
+## Fork original repo (Partner 1)
+
 Pick one group member to be the repo "owner". They will fork the template repository from here: <https://github.com/the-graph-courses/rmc_q3_2024_week_02_workshop>.
 
-![Partner 1 (Repo owner) should fork the repo from the TGC GitHub link above. Other group members do NOT need to do this step.](images/fork_tgc_repo.png)
+![Partner 1 (Repo owner) should fork the repo from the TGC GitHub link above. Other group members should NOT do this step.](images/fork_tgc_repo.png)
+
+## Add collaborators (Partner 1)
 
 Then they will add the other group members as collaborators on the forked repo.
 
 ![In the newly forked repo, Partner 1 will go to Settings \> Collaborators \> Add people](images/collaborators_step_01.png)
 
-![Enter the username or email for Partner 2.](images/collaborators_step_02.png)
+![Enter the username or email for Partner 2. Repeat the process for Partner 3.](images/collaborators_step_02.png)
 
-![Repeat the process for Partner 3. Invitations will be pending until the other users accept the invitation. Partners 2 & 3 should check their email or GitHub notifications to accept the invite.](images/collaborators_step_03.png)
+## Accept collaboration invite (Partners 2 & 3)
+
+![Invitations will be pending until the other users accept the invitation. Partners 2 & 3 should check their email or GitHub notifications to accept the invite.](images/collaborators_step_03.png)
+
+## Clone the repo to local computers (Everyone)
 
 All group members should then clone the repo to their local machines.
 
 ![](images/clone_github_desktop.png)
-
-![](images/git_diagram_fork_clone.png){width="569"}
 
 # TASK 2: CHOOSE THREE COUNTRIES
 
@@ -99,31 +109,39 @@ The "rmd" folder of the repo contains a main RMarkdown file `daly_report_PARENT.
 
 1.  `01_cmnn_burden_CHILD.Rmd`: This document will compare the DALY burden of communicable, maternal, neonatal, and nutritional diseases for the three countries.
 
-2.  ``` 02_ncd_burden``_CHILD``.Rmd ```: This document will compare the DALY burden of non-communicable diseases for the three countries.
+2.  `02_ncd_burden_CHILD.Rmd`: This document will compare the DALY burden of non-communicable diseases for the three countries.
 
-3.  ``` 03_overall_burden``_CHILD``.Rmd ```: This document will compare the overall DALY burden for the three countries.
+3.  `03_overall_burden_CHILD.Rmd`: This document will compare the overall DALY burden for the three countries.
 
-Each group member should take responsibility for completing one of these child documents. If there are two group members, you should only complete two child documents. If there are three group members, each person should complete one child document.
+If there are three group members, each person should complete one child document. If there are two group members, you should only complete the first two child documents.
 
-Read the instructions in your assigned child document and complete the tasks, analyzing the DALY burden for the three countries.
+Read the commented instructions in your assigned child document and fill in the code for each code chunk, analyzing the DALY burden for the three countries. Main steps to complete the analysis are:
 
-Each group member should complete these steps, commit their changes, and push to the remote repo.
+1.  Load packages and import data (this code is pre-filled for you)
+
+2.  Filter the data to your three chosen countries.
+
+3.  Pivot the dataset.
+
+4.  Render a table with `kable()`.
+
+5.  Plot a line graph showing trends over time.
+
+6.  Write a few sentences to summarize your findings.
+
+Each group member should complete these steps, **commit** their changes, and **push** to the remote repo that Partner 1 created.
 
 # TASK 4: RENDER THE MAIN REPORT
 
-Once all group members have completed their child documents, the repo owner should pull everyone's changes.
+Once all group members have completed and pushed their child documents, the repo owner (Partner 1) should pull everyone's changes. After pulling, check that all child documents are filled with the appropriate code.
 
-CHECK THAT CODE IS THERE.
-
-Then render the main ``` daly_report_PARENT``.Rmd ``` which will include the completed child docs. NO NEED TO ADD ANY CODE HERE.
+Then render the main `daly_report_PARENT.Rmd` which will include the completed child docs. There is no need to add any of your code to this document, as the chunk options will import the code from the child documents. You should get an output document called `daly_report_PARENT.md`.
 
 Make sure that only key outputs are displayed in the main report, not the code or package loading messages. The render output should be in **github_document** format.
 
-CHECK LOCALLY TO MAKE SURE IT LOOKS NICE.
+Partner 1 should then commit and push the final rendered report to GitHub. The other group members can then pull the changes, and the rendered document should appear in your local files.
 
-Commit and push the final rendered report to GitHub.
-
-Then go online to your repo and check that the report renders correctly. The images and tables should be visible.
+Finally, go online to your repo and check that the report renders correctly. The images and tables should be visible, as shown in the example report.
 
 # CHALLENGE (OPTIONAL)
 
@@ -131,9 +149,9 @@ If your groups finishes early, try to calculate and add a plot showing the *cumu
 
 # TASK 5: SUBMIT
 
-To submit, each group member should SUBMIT the link to the group's GitHub repo AS A FILE on the course platform. COPY FROM SLIDE.
+To submit, each group member should should upload the link to the groups GitHub repo as a **text file** (.txt, .docx, .Rmd, or .R).
 
-This will be the same repo for all group members. But each group member should submit the link individually. From the commit history, we will be able to see who contributed to the repo.
+This link will be for the same repo for all group members. But each group member should submit the link individually, so that your submission is recorded. From the commit history, we will be able to see who contributed to the repo.
 
 # TASK 6: PRESENT (OPTIONAL)
 

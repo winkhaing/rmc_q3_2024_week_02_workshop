@@ -5,13 +5,17 @@
 pacman::p_load(tidyverse, knitr, here)
 
 # Import the communicable diseases data
-data_cmnn <- read_csv(here("data", "burden-of-disease-cmnn.csv"))
+data_cmnn <- read_csv(here("data/burden-of-disease-cmnn.csv"))
+```
+
+```{r}
+# Filter the dataset to include only the three countries chosen by your group.
 ```
 
 ## Table of Estimates for CMNN Burden Over Time
 
 ```{r}
-# Here render a table for the DALY burden over time for the three countries 
+# Here render a table for the DALY burden over time for the three countries.
 # You should pivot the data to show each country in a separate column.
 # Use kable() from the knitr package to render the table.
 ```
@@ -25,5 +29,3 @@ data_cmnn <- read_csv(here("data", "burden-of-disease-cmnn.csv"))
 ## Summary of CMNN Burden Findings
 
 Provide a brief analysis based on the data presented in the table and chart. Highlight any significant findings or patterns. About 3 sentences.
-
-
