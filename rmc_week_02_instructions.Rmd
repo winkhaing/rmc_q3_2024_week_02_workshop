@@ -27,9 +27,7 @@ All group members will be pushing and pulling from the same GitHub repo.
 
 ![](images/clone_team_coding.png){width="589"}
 
-![](images/group_coding.png){width="578"}
-
-As you may remember from the lesson, merge conflicts can happen when multiple collaborators are working on the same document. To avoid merge conflicts, each member will work on a separate section in separated Rmd files. By splitting the full report into shorter documents, each member can work on their own section without disturbing the others.
+As you may remember from the lesson, merge conflicts can happen when multiple collaborators are working on the same document. To avoid merge conflicts, each member will work on a separate section in separate Rmd files. By splitting the full report into shorter documents, each member can work on their own document without disturbing the others.
 
 1.  **Partner 1 (Repo Owner)** - Section 1: CMNN burden
 
@@ -37,7 +35,7 @@ As you may remember from the lesson, merge conflicts can happen when multiple co
 
 3.  **Partner 3** - Section 3: Overall burden
 
-When everyone is done, each section will be automatically compiled knitted into one report using a special feature of R Markdown called **child documents** (explained below).
+When everyone is done, each section will be automatically compiled into one report using a special feature of R Markdown called **child documents** (explained below).
 
 # Parent and Child documents
 
@@ -63,12 +61,9 @@ Our files for today look like this:
 
 Since we’ve organised the report sections in the individual child Rmd files, all we need to do is to “source” these Rmd files into the “parent” file.
 
-We can call the child documents into the main parent document via the **`knitr`** chunk option **`child`**. The `child` option takes a character vector of paths to the child documents, e.g.,
+We can call the child documents into the main parent document via the **`knitr`** chunk option **`child`**. The `child` option takes a character vector of paths to the child documents, e.g., `{r child=c('one.Rmd', 'two.Rmd')}`.
 
-```{r child=c('one.Rmd', 'two.Rmd')}
-```
-
-In our case, the chunks option looks like this:
+In our case, the chunk option looks like this:
 
 ![](images/clipboard-704714772.png)
 
@@ -92,7 +87,7 @@ All group members should then clone the repo to their local machines.
 
 ![](images/clone_github_desktop.png)
 
-![](images/git_diagram_fork_clone.png)
+![](images/git_diagram_fork_clone.png){width="569"}
 
 # TASK 2: CHOOSE THREE COUNTRIES
 
@@ -104,9 +99,9 @@ The "rmd" folder of the repo contains a main RMarkdown file `daly_report_PARENT.
 
 1.  `01_cmnn_burden_CHILD.Rmd`: This document will compare the DALY burden of communicable, maternal, neonatal, and nutritional diseases for the three countries.
 
-2.  `02_ncd_burden``_CHILD``.Rmd`: This document will compare the DALY burden of non-communicable diseases for the three countries.
+2.  ``` 02_ncd_burden``_CHILD``.Rmd ```: This document will compare the DALY burden of non-communicable diseases for the three countries.
 
-3.  `03_overall_burden``_CHILD``.Rmd`: This document will compare the overall DALY burden for the three countries.
+3.  ``` 03_overall_burden``_CHILD``.Rmd ```: This document will compare the overall DALY burden for the three countries.
 
 Each group member should take responsibility for completing one of these child documents. If there are two group members, you should only complete two child documents. If there are three group members, each person should complete one child document.
 
@@ -118,7 +113,13 @@ Each group member should complete these steps, commit their changes, and push to
 
 Once all group members have completed their child documents, the repo owner should pull everyone's changes.
 
-Then render the main `daly_report_PARENT``.Rmd` which will include the completed child docs. Make sure that only key outputs are displayed in the main report, not the code or package loading messages. The render output should be in **github_document** format.
+CHECK THAT CODE IS THERE.
+
+Then render the main ``` daly_report_PARENT``.Rmd ``` which will include the completed child docs. NO NEED TO ADD ANY CODE HERE.
+
+Make sure that only key outputs are displayed in the main report, not the code or package loading messages. The render output should be in **github_document** format.
+
+CHECK LOCALLY TO MAKE SURE IT LOOKS NICE.
 
 Commit and push the final rendered report to GitHub.
 
@@ -130,7 +131,9 @@ If your groups finishes early, try to calculate and add a plot showing the *cumu
 
 # TASK 5: SUBMIT
 
-To submit, each group member should paste the link to the group's GitHub repo in the submission box on the course platform. This will be the same repo for all group members. But each group member should submit the link individually. From the commit history, we will be able to see who contributed to the repo.
+To submit, each group member should SUBMIT the link to the group's GitHub repo AS A FILE on the course platform. COPY FROM SLIDE.
+
+This will be the same repo for all group members. But each group member should submit the link individually. From the commit history, we will be able to see who contributed to the repo.
 
 # TASK 6: PRESENT (OPTIONAL)
 
