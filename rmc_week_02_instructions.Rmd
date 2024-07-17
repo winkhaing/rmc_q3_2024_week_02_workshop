@@ -75,9 +75,13 @@ We will provide a repository for this workshop, hosted on the GRAPH Courses GitH
 
 ![](images/git_diagram_fork_clone.png){width="543"}
 
+Before we get started, everyone should **log in to your GitHub accounts and have GitHub Desktop ready to go!**
+
 ## Fork original repo (Partner 1)
 
-Pick one group member to be the repo "owner". They will fork the template repository from here: <https://github.com/the-graph-courses/rmc_q3_2024_week_02_workshop>.
+Pick one group member to be the repo "owner" (Partner 1). They will fork the template repository from here: <https://github.com/the-graph-courses/rmc_q3_2024_week_02_workshop>.
+
+**NOTE**: Please choose someone who is able to screenshare.
 
 ![Partner 1 (Repo owner) should fork the repo from the TGC GitHub link above. Other group members should NOT do this step.](images/fork_tgc_repo.png)
 
