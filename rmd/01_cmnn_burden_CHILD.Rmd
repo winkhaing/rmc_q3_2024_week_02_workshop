@@ -10,13 +10,15 @@ data_cmnn <- read_csv(here("data/burden-of-disease-cmnn.csv"))
 
 ```{r}
 # Filter the dataset to include only the three countries chosen by your group.
+data_cmnn_mini <- "WRITE_YOUR_CODE_HERE"
 ```
 
 ## Table of Estimates for CMNN Burden Over Time
 
 ```{r}
 # Here render a table for the DALY burden over time for the three countries.
-# You should pivot the data to show each country in a separate column.
+# You should pivot the data wider to show each country in a separate column.
+data_cmnn_wide <- "WRITE_YOUR_CODE_HERE"
 # Use kable() from the knitr package to render the table.
 ```
 
@@ -24,6 +26,7 @@ data_cmnn <- read_csv(here("data/burden-of-disease-cmnn.csv"))
 
 ```{r}
 # Here, plot a line graph showing the trend of DALY burden for the chosen countries over time. You can use ggplot2 to create this plot. Each country's line should be a different color.
+# NOTE: Use your long 'mini' data frame for plotting, not the wide data used for the table. 
 ```
 
 ## Summary of CMNN Burden Findings
