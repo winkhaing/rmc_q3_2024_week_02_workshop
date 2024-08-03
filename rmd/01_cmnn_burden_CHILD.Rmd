@@ -10,7 +10,8 @@ data_cmnn <- read_csv(here("data/burden-of-disease-cmnn.csv"))
 
 ```{r}
 # Filter the dataset to include only the three countries chosen by your group.
-data_cmnn_mini <- "WRITE_YOUR_CODE_HERE"
+data_cmnn_mini <- data_cmnn %>% 
+  filter(Entity %in% c("United States", "China", "India"))
 ```
 
 ## Table of Estimates for CMNN Burden Over Time
@@ -18,17 +19,24 @@ data_cmnn_mini <- "WRITE_YOUR_CODE_HERE"
 ```{r}
 # Here render a table for the DALY burden over time for the three countries.
 # You should pivot the data wider to show each country in a separate column.
-data_cmnn_wide <- "WRITE_YOUR_CODE_HERE"
+data_cmnn_wide <- data_cmnn_mini %>%
+  pivot_wider(names_from = Entity, values_from = "DALYs (Disability-Adjusted Life Years) - Communicable, maternal, neonatal, and nutritional diseases - Sex: Both - Age: Age-standardized (Rate)")
+
 # Use kable() from the knitr package to render the table.
+kable(data_cmnn_wide)
 ```
 
 ## Plot Showing Trends in CMNN Burden Over Time
 
 ```{r}
 # Here, plot a line graph showing the trend of DALY burden for the chosen countries over time. You can use ggplot2 to create this plot. Each country's line should be a different color.
-# NOTE: Use your long 'mini' data frame for plotting, not the wide data used for the table. 
+# NOTE: Use your long 'mini' data frame for plotting, not the wide data used for the table.
+ggplot(data = data_cmnn_mini, aes(x = Year, y = `DALYs (Disability-Adjusted Life Years) - Communicable, maternal, neonatal, and nutritional diseases - Sex: Both - Age: Age-standardized (Rate)`)) +
+  geom_line(aes(color = Entity))
 ```
 
 ## Summary of CMNN Burden Findings
 
 Provide a brief analysis based on the data presented in the table and chart. Highlight any significant findings or patterns. About 3 sentences.
+
+The data shows that for the selected countries of United States, China, and India, the burden of communicable, maternal, neonatal, and nutritional diseases as measured by DALYs has generally decreased from 1990 to 2019. India has seen the largest drop in disease burden over this period, going from over 338,000 DALYs in 1990 to around 118,000 DALYs in 2019. All three nations have declined in their CMNN disease burden over the past few decades.
